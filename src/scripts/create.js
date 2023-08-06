@@ -16,6 +16,10 @@ fs.readFile("./src/components/template.html", "utf-8", (err, source) => {
     fs.writeFile(`./src/assets/sass/components/${component}.scss`, '', (err) => {
       if (err) return console.error(`there is a problem with creating ${component}.scss file!`);
       console.log(`${component} created successfully!`);
+      fs.appendFile('./src/assets/sass/components/_components.scss', `@import '${component}.scss';\n`, (err) => {
+        if (err) return console.error(`there is a problem with creating ${component}.scss file!`);
+        console.log(`${component}.scss is created successfully!`);
+      })
       // VSC فتح الملفات التي تم انشاءها في واجهة 
       exec(`code -r ./src/components/${component}.html`, (err) => {
         if (err) return console.error(err)

@@ -20,14 +20,13 @@ eval("\n\nmodule.exports = ansiHTML\n\n// Reference to https://github.com/sindre
 
 /***/ }),
 
-/***/ "./src/index.js":
-/*!**********************!*\
-  !*** ./src/index.js ***!
-  \**********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ "./src/assets/js/banner.js":
+/*!*********************************!*\
+  !*** ./src/assets/js/banner.js ***!
+  \*********************************/
+/***/ (() => {
 
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _assets_sass_index_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./assets/sass/index.scss */ \"./src/assets/sass/index.scss\");\n/* harmony import */ var normalize_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! normalize.css */ \"./node_modules/normalize.css/normalize.css\");\n\n\nconsole.log(\"مرحبا بكم\");\n\n//# sourceURL=webpack://control-panel/./src/index.js?");
+eval("(function () {\n  var closeBanners = document.querySelectorAll('.c-banner__close');\n  closeBanners.forEach(function (closebanner) {\n    closebanner.addEventListener('click', function (event) {\n      var banner = event.target.parentNode;\n      banner.classList.add('collapse');\n    });\n    closeBanner.addEventListener('transitionend', function (event) {\n      if (event.target === this) {\n        this.remove();\n      }\n    });\n  });\n})();\n\n//# sourceURL=webpack://control-panel/./src/assets/js/banner.js?");
 
 /***/ }),
 
@@ -83,28 +82,6 @@ eval("Object.defineProperty(exports, \"__esModule\", ({value:true}));exports.num
 
 "use strict";
 eval("Object.defineProperty(exports, \"__esModule\", ({value:true}));exports.fromCodePoint=String.fromCodePoint||function(astralCodePoint){return String.fromCharCode(Math.floor((astralCodePoint-65536)/1024)+55296,(astralCodePoint-65536)%1024+56320)};exports.getCodePoint=String.prototype.codePointAt?function(input,position){return input.codePointAt(position)}:function(input,position){return(input.charCodeAt(position)-55296)*1024+input.charCodeAt(position+1)-56320+65536};exports.highSurrogateFrom=55296;exports.highSurrogateTo=56319;\n\n//# sourceURL=webpack://control-panel/./node_modules/html-entities/lib/surrogate-pairs.js?");
-
-/***/ }),
-
-/***/ "./node_modules/normalize.css/normalize.css":
-/*!**************************************************!*\
-  !*** ./node_modules/normalize.css/normalize.css ***!
-  \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://control-panel/./node_modules/normalize.css/normalize.css?");
-
-/***/ }),
-
-/***/ "./src/assets/sass/index.scss":
-/*!************************************!*\
-  !*** ./src/assets/sass/index.scss ***!
-  \************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://control-panel/./src/assets/sass/index.scss?");
 
 /***/ }),
 
@@ -381,7 +358,7 @@ eval("/** @typedef {\"info\" | \"warning\" | \"error\"} LogLevel */\n\n/** @type
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
 /******/ 	__webpack_require__("./node_modules/webpack-dev-server/client/index.js?protocol=ws%3A&hostname=0.0.0.0&port=1804&pathname=%2Fws&logging=info&overlay=%7B%22errors%22%3Atrue%2C%22warnings%22%3Atrue%7D&reconnect=10&hot=false&live-reload=true");
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/index.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/assets/js/banner.js");
 /******/ 	
 /******/ })()
 ;

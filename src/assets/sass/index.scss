@@ -3,13 +3,17 @@
 @import "config/colors.scss";
 
 @import "utilites/spacing.scss";
+@import "utilites/mixin-card.scss";
 
 @import "base/fonts.scss";
 @import "base/global.scss";
 @import "base/typography.scss";
 @import "base/links.scss";
 
-$background-color: #af5f;
+@import "components/demo.scss";
+@import "components/components.scss";
+
+$background-color: #cecece;
 body {
 	background-color: $background-color;
 }

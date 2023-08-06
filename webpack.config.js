@@ -7,6 +7,7 @@ module.exports = {
   entry: {
     // publicPath: '/',
     index: "./src/index.js",
+    "assets/js/banner": "./src/assets/js/banner.js",
   },
   output: {
     path: path.join(__dirname, "/dist"),
@@ -54,6 +55,18 @@ module.exports = {
           filename: 'assets/fonts/[name].[ext]'
         }
       },
+      // القاعدة الخاصة بمكتبة بابل 
+      // لتحويل شيفرات جافا متقدمة الي قديمة تفهمها جميع المتصفحات
+      {
+        test: /\.m?js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
+      },
     ],
   },
   plugins: [
@@ -63,8 +76,29 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       filename: "index.html",
-      template: "./src/index.html"
-    })
+      template: "./src/index.html",
+      chunks: ["index"],
+    }),
+    new HtmlWebpackPlugin({
+      filename: "components/button.html",
+      template: "./src/components/button.html",
+      chunks: ["index"],
+    }),
+    new HtmlWebpackPlugin({
+      filename: "components/textfield.html",
+      template: "./src/components/textfield.html",
+      chunks: ["index"],
+    }),
+    new HtmlWebpackPlugin({
+      filename: "components/card.html",
+      template: "./src/components/card.html",
+      chunks: ["index"],
+    }),
+    new HtmlWebpackPlugin({
+      filename: "components/banner.html",
+      template: "./src/components/banner.html",
+      chunks: ["index", "assets/js/banner"],
+    }),
   ]
 
 }
