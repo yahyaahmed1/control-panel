@@ -20,13 +20,13 @@ eval("\n\nmodule.exports = ansiHTML\n\n// Reference to https://github.com/sindre
 
 /***/ }),
 
-/***/ "./src/assets/js/banner.js":
-/*!*********************************!*\
-  !*** ./src/assets/js/banner.js ***!
-  \*********************************/
+/***/ "./src/assets/js/tabs.js":
+/*!*******************************!*\
+  !*** ./src/assets/js/tabs.js ***!
+  \*******************************/
 /***/ (() => {
 
-eval("(function () {\n  var closeBanners = document.querySelectorAll('.js-banner-close');\n  closeBanners.forEach(function (closebanner) {\n    closebanner.addEventListener('click', function (event) {\n      var banner = event.target.parentNode;\n      banner.classList.add('collapse');\n    });\n    closeBanner.addEventListener('transitionend', function (event) {\n      if (event.target === this) {\n        this.remove();\n      }\n    });\n  });\n})();\n\n//# sourceURL=webpack://control-panel/./src/assets/js/banner.js?");
+eval("(function () {\n  var tabs = document.querySelectorAll(\".js-tabs\");\n  Array.from(tabs, function (tab) {\n    var tabsLinks = tab.querySelectorAll(\".js-tab-link\");\n    var ActiveTab = tab.querySelector(\".js-tab-link.is-active\");\n    var toggleTab = function toggleTab() {\n      var toggledTablink = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : ActiveTab;\n      ActiveTab = toggledTablink || ActiveTab;\n      toggledTablink.classList.toggle(\"is-active\");\n      var toggledTabData = toggledTablink.dataset.index;\n      var toggledTabArea = tab.querySelector(\".js-tabarea[data-indexed=\".concat(toggledTabData, \"]\"));\n      toggledTabArea.classList.toggle(\"is-active\");\n    };\n    if (!ActiveTab) {\n      toggleTab(tabsLinks[0]);\n    }\n    tabsLinks.forEach(function (tablink) {\n      tablink.addEventListener(\"click\", function () {\n        if (ActiveTab === this) {\n          return;\n        }\n        if (ActiveTab) {\n          toggleTab();\n        }\n        toggleTab(this);\n      });\n    });\n  });\n})();\n\n//# sourceURL=webpack://control-panel/./src/assets/js/tabs.js?");
 
 /***/ }),
 
@@ -358,7 +358,7 @@ eval("/** @typedef {\"info\" | \"warning\" | \"error\"} LogLevel */\n\n/** @type
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
 /******/ 	__webpack_require__("./node_modules/webpack-dev-server/client/index.js?protocol=ws%3A&hostname=0.0.0.0&port=1804&pathname=%2Fws&logging=info&overlay=%7B%22errors%22%3Atrue%2C%22warnings%22%3Atrue%7D&reconnect=10&hot=false&live-reload=true");
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/assets/js/banner.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/assets/js/tabs.js");
 /******/ 	
 /******/ })()
 ;

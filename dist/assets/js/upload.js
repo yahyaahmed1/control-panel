@@ -20,13 +20,13 @@ eval("\n\nmodule.exports = ansiHTML\n\n// Reference to https://github.com/sindre
 
 /***/ }),
 
-/***/ "./src/assets/js/banner.js":
+/***/ "./src/assets/js/upload.js":
 /*!*********************************!*\
-  !*** ./src/assets/js/banner.js ***!
+  !*** ./src/assets/js/upload.js ***!
   \*********************************/
 /***/ (() => {
 
-eval("(function () {\n  var closeBanners = document.querySelectorAll('.js-banner-close');\n  closeBanners.forEach(function (closebanner) {\n    closebanner.addEventListener('click', function (event) {\n      var banner = event.target.parentNode;\n      banner.classList.add('collapse');\n    });\n    closeBanner.addEventListener('transitionend', function (event) {\n      if (event.target === this) {\n        this.remove();\n      }\n    });\n  });\n})();\n\n//# sourceURL=webpack://control-panel/./src/assets/js/banner.js?");
+eval("(function () {\n  var uploaders = document.querySelectorAll(\".js-upload\");\n  Array.from(uploaders, function (uploader) {\n    var upload = uploader.querySelector(\".js-upload-value\"),\n      placeholder = uploader.querySelector(\".js-upload-placeholder\"),\n      remove = uploader.querySelector(\".js-upload-remove\");\n    upload.addEventListener(\"change\", function (event) {\n      var img = this.files[0];\n      var reader = new FileReader();\n      reader.readAsDataURL(img);\n      reader.onloadend = function () {\n        uploader.classList.add(\"has-img\");\n        placeholder.src = reader.result;\n      };\n    });\n    remove.addEventListener(\"click\", function (e) {\n      upload.value = null;\n      uploader.classList.remove(\"has-img\");\n      placeholder.src = \"\";\n    });\n  });\n})();\n\n//# sourceURL=webpack://control-panel/./src/assets/js/upload.js?");
 
 /***/ }),
 
@@ -358,7 +358,7 @@ eval("/** @typedef {\"info\" | \"warning\" | \"error\"} LogLevel */\n\n/** @type
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
 /******/ 	__webpack_require__("./node_modules/webpack-dev-server/client/index.js?protocol=ws%3A&hostname=0.0.0.0&port=1804&pathname=%2Fws&logging=info&overlay=%7B%22errors%22%3Atrue%2C%22warnings%22%3Atrue%7D&reconnect=10&hot=false&live-reload=true");
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/assets/js/banner.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/assets/js/upload.js");
 /******/ 	
 /******/ })()
 ;

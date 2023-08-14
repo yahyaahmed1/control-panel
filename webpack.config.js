@@ -8,6 +8,9 @@ module.exports = {
     // publicPath: '/',
     index: "./src/index.js",
     "assets/js/banner": "./src/assets/js/banner.js",
+    "assets/js/tabs": "./src/assets/js/tabs.js",
+    "assets/js/upload": "./src/assets/js/upload.js",
+    "assets/js/chart": "./src/assets/js/chart.js",
   },
   output: {
     path: path.join(__dirname, "/dist"),
@@ -52,7 +55,16 @@ module.exports = {
         exclude: /images/,
         type: 'asset/resource',
         generator: {
-          filename: 'assets/fonts/[name].[ext]'
+          filename: 'assets/fonts/[name][ext]'
+        }
+      },
+      // لتحزيم ملفات الصور
+      {
+        test: /\.(svg|png|jpe?g|gif)$/i,
+        exclude: /fonts/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/images/[name][ext]'
         }
       },
       // القاعدة الخاصة بمكتبة بابل 
@@ -98,6 +110,51 @@ module.exports = {
       filename: "components/banner.html",
       template: "./src/components/banner.html",
       chunks: ["index", "assets/js/banner"],
+    }),
+    new HtmlWebpackPlugin({
+      filename: "components/list.html",
+      template: "./src/components/list.html",
+      chunks: ["index"],
+    }),
+    new HtmlWebpackPlugin({
+      filename: "components/tabs.html",
+      template: "./src/components/tabs.html",
+      chunks: ["index", "assets/js/tabs"],
+    }),
+    new HtmlWebpackPlugin({
+      filename: "components/upload.html",
+      template: "./src/components/upload.html",
+      chunks: ["index", "assets/js/upload"],
+    }),
+    new HtmlWebpackPlugin({
+      filename: "components/help.html",
+      template: "./src/components/help.html",
+      chunks: ["index"],
+    }),
+    new HtmlWebpackPlugin({
+      filename: "components/summary.html",
+      template: "./src/components/summary.html",
+      chunks: ["index"],
+    }),
+    new HtmlWebpackPlugin({
+      filename: "components/actions.html",
+      template: "./src/components/actions.html",
+      chunks: ["index"],
+    }),
+    new HtmlWebpackPlugin({
+      filename: "components/sidebar.html",
+      template: "./src/components/sidebar.html",
+      chunks: ["index"],
+    }),
+    new HtmlWebpackPlugin({
+      filename: "components/table.html",
+      template: "./src/components/table.html",
+      chunks: ["index"],
+    }),
+    new HtmlWebpackPlugin({
+      filename: "components/chart.html",
+      template: "./src/components/chart.html",
+      chunks: ["index", "assets/js/chart"],
     }),
   ]
 
