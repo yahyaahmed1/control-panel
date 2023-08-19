@@ -4,12 +4,12 @@
     closebanner.addEventListener('click', event => {
       const banner = event.target.parentNode;
       banner.classList.add('collapse')
+      banner.addEventListener('transitionend', function (event) {
+        if (event.target === this) {
+          this.remove()
+        }
+      })
     })
 
-    closeBanner.addEventListener('transitionend', function (event) {
-      if (event.target === this) {
-        this.remove()
-      }
-    })
   })
 })();

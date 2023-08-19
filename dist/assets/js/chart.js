@@ -345,7 +345,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/*!\n * Chart.js v4.3.3\n * h
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("e0e68bc34eba237167a2")
+/******/ 		__webpack_require__.h = () => ("b90960a9ef97228c040c")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */

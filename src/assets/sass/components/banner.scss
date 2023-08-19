@@ -50,6 +50,9 @@ $icon-size: 32px;
 .c-banner > * {
 	transform: opacity 200ms ease;
 }
+.c-banner {
+	transition: transform 400ms ease-out 300ms;
+}
 .c-banner.collapse > * {
 	opacity: 0;
 }

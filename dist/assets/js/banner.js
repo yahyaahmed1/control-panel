@@ -26,7 +26,7 @@ eval("\n\nmodule.exports = ansiHTML\n\n// Reference to https://github.com/sindre
   \*********************************/
 /***/ (() => {
 
-eval("(function () {\n  var closeBanners = document.querySelectorAll('.js-banner-close');\n  closeBanners.forEach(function (closebanner) {\n    closebanner.addEventListener('click', function (event) {\n      var banner = event.target.parentNode;\n      banner.classList.add('collapse');\n    });\n    closeBanner.addEventListener('transitionend', function (event) {\n      if (event.target === this) {\n        this.remove();\n      }\n    });\n  });\n})();\n\n//# sourceURL=webpack://control-panel/./src/assets/js/banner.js?");
+eval("(function () {\n  var closeBanners = document.querySelectorAll('.js-banner-close');\n  closeBanners.forEach(function (closebanner) {\n    closebanner.addEventListener('click', function (event) {\n      var banner = event.target.parentNode;\n      banner.classList.add('collapse');\n      banner.addEventListener('transitionend', function (event) {\n        if (event.target === this) {\n          this.remove();\n        }\n      });\n    });\n  });\n})();\n\n//# sourceURL=webpack://control-panel/./src/assets/js/banner.js?");
 
 /***/ }),
 
@@ -333,7 +333,7 @@ eval("/** @typedef {\"info\" | \"warning\" | \"error\"} LogLevel */\n\n/** @type
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("e0e68bc34eba237167a2")
+/******/ 		__webpack_require__.h = () => ("b90960a9ef97228c040c")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */

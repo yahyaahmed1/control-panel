@@ -13,6 +13,11 @@
 @import "components/demo.scss";
 @import "components/components.scss";
 
+@import "pages/index-styles.scss";
+@import "pages/single-page.scss";
+
+@import "hacks/add-product.scss";
+
 $background-color: #cecece;
 body {
 	background-color: $background-color;
