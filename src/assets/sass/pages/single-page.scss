@@ -9,3 +9,10 @@
 		margin-right: spacing("wide");
 	}
 }
+@media (max-width: $bp-tablet-normal) {
+	.page-header {
+		& > .c-btn {
+			margin: 0 !important;
+		}
+	}
+}

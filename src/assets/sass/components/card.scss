@@ -3,7 +3,7 @@
 	display: flex;
 	align-items: flex-start;
 	flex-wrap: wrap;
-	padding: spacing("normal");
+	padding: calc(spacing("normal") / 2) spacing("normal");
 	width: 100%;
 }
 
@@ -12,6 +12,12 @@
 	color: $color-text-subdued;
 	font-weight: normal;
 	margin-left: spacing();
+	margin-top: calc(spacing("normal") / 2);
+	margin-bottom: calc(spacing("normal") / 2);
+}
+.c-card__action {
+	margin-top: calc(spacing("normal") / 2);
+	margin-bottom: calc(spacing("normal") / 2);
 }
 
 .c-card__desc {

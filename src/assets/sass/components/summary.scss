@@ -3,11 +3,14 @@
 	display: inline-flex;
 	align-items: center;
 	padding: spacing("small") spacing("wide");
+	flex-wrap: wrap;
 }
 .c-summary__data {
 	display: flex;
 	flex-direction: column;
 	margin-left: spacing("normal");
+	align-items: flex-start;
+
 	&:last-child {
 		margin-left: spacing("none");
 	}
@@ -38,4 +41,8 @@
 		font-size: 13px;
 		font-weight: normal;
 	}
+}
+.c-summary--spaceless {
+	padding-left: 0;
+	padding-right: 0;
 }

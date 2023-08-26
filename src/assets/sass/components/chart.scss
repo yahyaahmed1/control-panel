@@ -8,6 +8,8 @@
 	justify-content: space-between;
 	align-items: center;
 	padding: 0 spacing("normal");
+	flex-wrap: wrap;
+	margin-bottom: spacing("small");
 }
 .c-chart__header__title {
 	margin-left: auto;
@@ -18,4 +20,9 @@
 .c-chart__data {
 	padding: spacing("small");
 	--color-brand: #2541b2;
+}
+@media (max-width: $bp-phone-large) {
+	.c-table__navigation__arrows {
+		margin-right: 0;
+	}
 }

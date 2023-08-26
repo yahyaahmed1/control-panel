@@ -1,9 +1,21 @@
 .c-tabs {
 	@include e-card;
 	width: 100%;
+	position: relative;
 }
 .c-tabs__control {
 	display: flex;
+	overflow-x: auto;
+	&::before {
+		content: "";
+		width: 100%;
+		height: floor(calc($line-height * $font-size-base) + (spacing() * 2));
+		position: absolute;
+		top: 0;
+		left: 0;
+		background-image: linear-gradient(90deg, white 20px, transparent 30px);
+		pointer-events: none;
+	}
 }
 .c-tabs__tab {
 	text-align: center;
@@ -11,6 +23,7 @@
 	flex-grow: 1;
 	cursor: pointer;
 	border-bottom: 3px solid transparent;
+	white-space: pre;
 }
 .c-tabs__tab:hover {
 	background-color: darken(#fff, 5%);

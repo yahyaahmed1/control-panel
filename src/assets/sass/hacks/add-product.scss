@@ -2,3 +2,58 @@
 	width: 500px;
 	margin-right: spacing("wide");
 }
+
+@media (max-width: $bp-desktop-small) {
+	h1 {
+		font-size: 1.8em !important;
+	}
+	.c-form {
+		flex-wrap: wrap;
+	}
+	.c-upload + .c-form__controls {
+		margin-right: 0;
+	}
+}
+@media (max-width: $bp-tablet-normal) {
+	.page-header {
+		display: flex;
+		margin: 35px 0;
+		flex-direction: column;
+		align-items: center;
+		button {
+			margin: auto !important;
+			&:not(:last-child) {
+				margin-bottom: 5px !important;
+			}
+		}
+	}
+	.c-form {
+		align-items: center;
+		flex-direction: column;
+	}
+	.c-form__row {
+		margin-bottom: 15px;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+	.c-upload + .c-form__controls {
+		width: auto;
+		max-width: 500px;
+	}
+	.c-form__row > * {
+		margin-left: 10px;
+		margin-right: 25px;
+	}
+	.c-upload__image {
+		width: -webkit-fill-available;
+		background-size: 100px;
+	}
+	.c-upload__label {
+		font-size: 12px;
+	}
+	.c-upload__title {
+		font-size: 12px;
+		margin-bottom: 15px;
+		font-weight: bold;
+	}
+}

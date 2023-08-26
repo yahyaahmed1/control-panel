@@ -1,8 +1,8 @@
 $product-media-size: 40px;
-
+$bp-table-column: 660px;
 .c-table {
 	@include e-card;
-	padding: spacing("normal") 0;
+	padding: spacing("normal") 10px;
 	width: 100%;
 }
 .c-table__header {
@@ -10,12 +10,13 @@ $product-media-size: 40px;
 	align-items: baseline;
 	margin-bottom: spacing("small");
 	padding: 0 spacing("normal");
+	flex-wrap: wrap;
 }
 .c-table__navigation {
-	// margin-right: auto;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	margin-top: spacing();
 }
 .c-table__actions {
 	margin-left: auto;
@@ -33,29 +34,17 @@ $product-media-size: 40px;
 	font-size: 13px;
 	width: 100%;
 	border-collapse: collapse;
-	th {
-		text-align: right;
-	}
 	th,
 	td {
-		&:first-child {
-			padding: spacing("normal");
-			width: 75px;
-		}
+		text-align: right;
 		padding: spacing("extra-small") 0;
 		border-bottom: 1px solid rgba(darken(white, 40%), 0.15);
-		img {
-			width: $product-media-size;
-			height: $product-media-size;
-			vertical-align: middle;
-		}
 	}
-}
-.c-table__footer {
-	display: flex;
-	flex-flow: row-reverse;
-	padding-top: spacing("normal");
-	padding-left: spacing("normal");
+	img {
+		width: $product-media-size;
+		height: $product-media-size;
+		vertical-align: middle;
+	}
 }
 .c-btn--icon {
 	font-size: 20px;
@@ -63,4 +52,167 @@ $product-media-size: 40px;
 	height: 36px;
 	padding: 0;
 	text-align: center;
+}
+.c-table__footer {
+	display: flex;
+	flex-flow: row-reverse;
+	padding-top: spacing("normal");
+	padding-left: spacing("normal");
+}
+.c-table--select-all {
+	th,
+	td {
+		&:first-child {
+			padding-right: spacing("normal");
+			width: 75px;
+		}
+	}
+}
+.c-table--select-all th:first-child input + label {
+	display: none;
+}
+
+// responsive
+
+@media (max-width: $bp-table-column) {
+	.c-table__data {
+		display: flex;
+		overflow-x: auto;
+		tbody,
+		thead {
+			display: flex;
+			flex-grow: 1;
+			min-width: max-content;
+		}
+		tr {
+			display: flex;
+			flex-grow: 1;
+			flex-shrink: 0;
+			flex-direction: column;
+		}
+		th,
+		td {
+			padding: spacing("extra-small") spacing();
+		}
+		th:last-child {
+			flex-grow: 1;
+		}
+	}
+
+	.c-table--select-all th:first-child input + label {
+		display: inline;
+	}
+	.c-table--select-all th:nth-child(2) label {
+		display: none;
+	}
+	.c-table--select-all {
+		th,
+		td {
+			&:first-child {
+				display: flex;
+				align-items: center;
+				padding-right: spacing();
+				width: initial;
+				input {
+					margin-left: spacing("extra-small");
+				}
+			}
+		}
+	}
+
+	.c-table--select-all td:first-child {
+		height: floor(calc(13px * $line-height)) + 2px;
+		box-sizing: content-box;
+	}
+	.c-table--select-all th:nth-child(2) {
+		height: $product-media-size + 1.4px;
+		box-sizing: content-box;
+	}
+	.c-table--select-all th:nth-child(3),
+	.c-table--select-all th:nth-child(1) {
+		order: -1;
+		border-bottom-color: transparent;
+	}
+	.c-list--table-row {
+		width: initial;
+		align-items: flex-start;
+		padding: 0;
+		.c-list__actions {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			border-top: 0;
+			.c-btn {
+				margin-bottom: spacing("small");
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
+		th,
+		td {
+			width: 100% !important;
+		}
+	}
+}
+@media (max-width: $bp-tablet-normal) {
+	.c-table__data th,
+	.c-table__data td {
+		text-align: center;
+	}
+}
+@media (max-width: $bp-phone-large) {
+	.c-table__data thead {
+		display: flex;
+	}
+	.c-table__actions {
+		margin-left: 0;
+		display: flex;
+		justify-content: space-around;
+		flex-wrap: wrap;
+		align-items: flex-end;
+		& > *:last-child {
+			margin-top: 10px;
+		}
+	}
+	.c-table__title {
+		margin: auto;
+		padding-top: 0;
+		margin-bottom: 15px;
+	}
+	.c-table__navigation {
+		width: 180px;
+		max-width: 230px;
+		flex-grow: 1;
+	}
+	.c-table__header {
+		justify-content: space-around;
+	}
+	.c-table__footer {
+		justify-content: space-around;
+		padding-right: 32px;
+	}
+	.c-list__media {
+		margin: 0;
+	}
+	.c-table__data img {
+		width: 30px;
+		height: 30px;
+	}
+	.c-list__data:not(:first-of-type),
+	.c-list__actions {
+		margin-right: 0;
+	}
+	.c-table__data th:not(:last-child),
+	.c-table__data td:not(:last-child) {
+		height: 50px;
+	}
+	.c-list--table-row .c-list__actions {
+		border: 0;
+		justify-content: center;
+		align-items: center;
+	}
+	.c-list--table-row .c-list__actions .c-btn {
+		margin-bottom: 10px;
+	}
 }
